@@ -26,14 +26,13 @@ exports.create = (req,res)=>{
 // retrieve and return all users/ retrive and return a single user
 exports.find = (req, res)=>{
 console.log("--------");
-   
     if(req.query.id || req.body.lastname){
         const id = req.query.id;
         let name=req.body.lastname;
-console.log("+++",id,name)
-if(id == "undefined"){
+        console.log("+++",id,name)
+
+        if(id){
         conn.query(`SELECT * from \`users\` where id=${id}`,function(err,resp){
-            console.log(resp)
             if(err){
                 console.log("ERROR")
             }
@@ -46,7 +45,6 @@ if(id == "undefined"){
             }
         })
     }else{
-        
         conn.query(`SELECT * FROM \`users\`  WHERE lastname like ?`,[name],function(err,resp){
             console.log(resp)
             if(err){
