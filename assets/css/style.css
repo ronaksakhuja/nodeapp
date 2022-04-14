@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body{
+    height: 100vh;
+    background-image: url('/img/bg.jpg');
+    background-repeat: no-repeat repeat;
+    background-color: #fdc7ed;
+    background-size: cover;
+    color: rgb(8, 8, 8);
+}
 
 :root{
     --dark: #2b2d42;
@@ -19,15 +30,22 @@ a {
 }
 
 .container{
-    max-width: 1024px;
+    max-width: 1000px;
     margin: auto;
 }
 
 .nav-brand{
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Maven Pro', sans-serif;
+    color: rgb(255, 255, 255);
+}
+.member-header{
     font-size: 1.5em;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: black;
 }
-
 .d-flex{
     display: flex;
     flex-wrap: wrap;
@@ -37,19 +55,10 @@ a {
     justify-content: space-between;
 }
 
-.text-center{
-    text-align: center;
-}
-
 .border-shadow{
     border: 1px solid var(--border-btn);
     box-shadow: 1px 3px 10px #e9ecef;
 }
-
-.text-dark{
-    color: var(--dark);
-}
-
 .inline{
     display: inline-block;
 }
@@ -59,26 +68,33 @@ a {
 }
 
 .text-gradient{
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgb(190, 86, 48);
+    font-family: 'Roboto', sans-serif;
+
 }
 
 #header nav{
-    background-color: #06d6a0;
-    padding: 1em 0;
+    padding: 1.5em 0;
     width: 100%;
 }
 
 #site-main{
-    margin-top: 6em;
+    border-radius: 25px;
+    box-shadow: 0px 0px 32px 17px rgba(0, 0, 0, 0.28);
+    width: 1040px;
+    margin: auto;
+    padding: 2em 0;
+    background-color: white;
+    margin-top: 3.6em;
     font-family: 'Barlow', sans-serif;
 }
 
 #site-main .container .box-nav > a{
-    font-size: 1em;
-    padding: .5em 1em;
+    margin-left:auto;
+    margin-right:0;
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: .3em 1em;
 }
 
 #site-main .container form{
@@ -87,6 +103,7 @@ a {
 
 table{
     border-spacing: 0px;
+    
     width: 100%;
 }
 
@@ -104,18 +121,17 @@ table{
 }
 
 .table tr:hover{
-    background-color:#06d6a0 ;
+    background-color: rgb(252, 224, 215); ;
 }
+
 
 .table tr:hover td > a{
     box-shadow: none;
 }
 
 .table .thead-dark th{
-    color: #fff;
-    background-color: var(--dark) ;
-    border-color: #32383e;
-}
+    background-color: rgb(245, 125, 89);
+ }
 
 @media only screen and (max-width: 1024px){
     table, thead, tbody, th, td, tr{
@@ -197,13 +213,13 @@ table{
 }
 
 .radio input[type='radio']:checked + .radio-label:before{
-    background-color: #16db93;
+    background-color: rgb(245, 125, 89);
     box-shadow: inset 0 0 0 4px #e9ecef;
 }
 
 .radio input[type='radio']:focus + .radio-label:before{
     outline: none;
-    border-color:#16db93;
+    border-color:rgb(245, 125, 89);
 }
 
 .radio input[type='radio']:disabled + .radio-label:before{
@@ -216,7 +232,7 @@ table{
 #add_user .form-group .btn{
     width: 100%;
     padding: .9em 1em;
-    background-color:#16db93; 
+    background-color:rgb(245, 125, 89);
     border: none;
     font-family: 'PT Sans', sans-serif;
     font-size: 1em;
@@ -227,6 +243,12 @@ table{
 
 #update_user .form-group .btn:hover,
 #add_user .form-group .btn:hover{
-    background-color: var(--dark);
-    color: var(--border);
+    background-color:rgba(119, 35, 1, 0.904);
+    color: white;
+}
+.fa_custom{
+    color: rgb(27, 27, 27);
+}
+.filter{
+    font-size: 1.4em;
 }

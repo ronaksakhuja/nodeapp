@@ -11,10 +11,10 @@ exports.create = (req,res)=>{
         return;
     }
     // new user
-    const user = new Userdb(req.body.name,req.body.email,req.body.gender, req.body.status)
+    const user = new Userdb(req.body.firstname,req.body.lastname,req.body.email,req.body.gender, req.body.status)
 
 
-    conn.query(`INSERT INTO \`users\` (name,email,gender,status) VALUES ('${user.name}','${user.email}','${user.gender}','${user.status}') `,function(err,res){
+    conn.query(`INSERT INTO \`users\` (firstname,lastname,email,gender,status) VALUES ('${user.firstname}','${user.lastname}','${user.email}','${user.gender}','${user.status}') `,function(err,res){
     console.log(res);
     console.log(err);
 
@@ -25,10 +25,13 @@ exports.create = (req,res)=>{
 
 // retrieve and return all users/ retrive and return a single user
 exports.find = (req, res)=>{
-
-    if(req.query.id){
+console.log("--------");
+   
+    if(req.query.id || req.body.lastname){
         const id = req.query.id;
-
+        let name=req.body.lastname;
+console.log("+++",id,name)
+if(id == "undefined"){
         conn.query(`SELECT * from \`users\` where id=${id}`,function(err,resp){
             console.log(resp)
             if(err){
@@ -42,6 +45,22 @@ exports.find = (req, res)=>{
                 res.send(resp[0])
             }
         })
+    }else{
+        
+        conn.query(`SELECT * FROM \`users\`  WHERE lastname like ?`,[name],function(err,resp){
+            console.log(resp)
+            if(err){
+                console.log("ERROR")
+            }
+            if(resp.length ==0){
+                console.log("EMPTY")
+                res.send("No user found")
+            }
+            else{
+                res.render("search", { users :  resp.data})
+            }
+        })
+    }
 
     }else{
         conn.query(`SELECT * from \`users\``,function(err,resp){
@@ -69,7 +88,7 @@ exports.update = (req, res)=>{
 
     const id = req.params.id;
 
-    conn.query(`UPDATE \`users\` SET name='${req.body.name}',email='${req.body.email}',status='${req.body.status}', gender='${req.body.gender}' where id=${id}`,function(err,resp){
+    conn.query(`UPDATE \`users\` SET firstname='${req.body.firstname}',lastname='${req.body.lastname}',email='${req.body.email}',status='${req.body.status}', gender='${req.body.gender}' where id=${id}`,function(err,resp){
         console.log(resp)
         if(err){
             console.log("ERROR")

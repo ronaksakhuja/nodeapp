@@ -1,27 +1,28 @@
 {
-  "name": "crud_app",
+  "name": "nodejs_app",
   "version": "1.0.0",
-  "description": "crud application with express and mongodb",
+  "description": "node application with express and mysql",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
-    "crud",
-    "mongodb"
+    "nodejs",
+    "mysql"
   ],
-  "author": "akshay kashyap",
+  "author": "S",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.0",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.10.11",
+    "express": "^4.17.3",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1",
-    "nodemon": "^2.0.6"
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

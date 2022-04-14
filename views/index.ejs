@@ -7,20 +7,33 @@
     <!-- Main Site -->
     <main id="site-main">
         <div class="container">
+            <div class="">
+            <div class="member-header">
+                MEMBERS
+            </div>
+         <div>
+            <h4>Search Here</h4>
+            <form method="POST" action="/search" novalidate>
+                <input  type="search" placeholder="Search" name="lastname" aria-label="Search">
+                <button ype="submit">Search</button>
+              </form>
+         </div>
             <div class="box-nav d-flex justify-between">
                 <a href="/add-user" class="border-shadow">
-                    <span class="text-gradient">New User <i class="fas fa-user"></i></span>
+                    <span class="text-gradient">Add New Member  <i class="fa fa-user fa_custom"></i></span>
                 </a>
             </div>
 
             <!-- form handling -->
+            <% if(users.length > 0){%>
             <form action="/" method="POST">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>@Email</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email Id</th>
                             <th>Gender</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -31,6 +44,9 @@
                     </tbody>
                 </table>
             </form>
+            <% } else { %> 
+                <h2 style="text-align: center; margin-top: 2em;" class="text-gradient"> Members Data not found! </h2>
+                <% } %> 
         </div>
     </main>
 <!-- /Main Site -->
