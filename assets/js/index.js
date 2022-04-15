@@ -23,7 +23,7 @@ $("#update_user").submit(function (event) {
   });
 });
 
-if (window.location.pathname == "/") {
+if (window.location.pathname == "/" || window.location.pathname == "/search-user") {
   $ondelete = $(".table tbody td a.delete");
   $ondelete.click(function () {
     var id = $(this).attr("data-id");
@@ -41,6 +41,7 @@ if (window.location.pathname == "/") {
     }
   });
 }
+
 if (window.location.pathname == "/") {
   var x = document.getElementById("add-member");
   x.style.display = "inline-block";
